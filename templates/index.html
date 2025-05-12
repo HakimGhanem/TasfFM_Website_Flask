@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Task FM - Une solution pour facility management</title>
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+  
+  <!-- Preload des images -->
+  <link rel="preload" as="image" href="{{ url_for('static', filename='images/saas.jpg') }}" type="image/jpeg">
+  <link rel="preload" as="image" href="{{ url_for('static', filename='images/pres-1.jpg') }}" type="image/jpeg">
+  <link rel="preload" as="image" href="{{ url_for('static', filename='images/pres-2.jpg') }}" type="image/jpeg">
+  <link rel="preload" as="image" href="{{ url_for('static', filename='images/batiment.jpg') }}" type="image/jpeg">
+  <link rel="preload" as="image" href="{{ url_for('static', filename='images/analyse.jpg') }}" type="image/jpeg">
+  <link rel="preload" as="image" href="{{ url_for('static', filename='images/equipements.jpg') }}" type="image/jpeg">
+  <link rel="preload" as="image" href="{{ url_for('static', filename='images/gestion.jpg') }}" type="image/jpeg">
+  <link rel="preload" as="image" href="{{ url_for('static', filename='images/energetique.jpg') }}" type="image/jpeg">
+  <link rel="preload" as="image" href="{{ url_for('static', filename='images/logos/google.png') }}" type="image/png">
+  <link rel="preload" as="image" href="{{ url_for('static', filename='images/logos/microsoft.svg') }}" type="image/svg+xml">
+  <link rel="preload" as="image" href="{{ url_for('static', filename='images/logos/slack.png') }}" type="image/png">
+  <link rel="preload" as="image" href="{{ url_for('static', filename='images/logos/zoom.png') }}" type="image/png">
+  
+  <!-- Owl Carousel CSS via CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-42TV75YQSB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-42TV75YQSB');
+  </script>
+</head>
+<body>
+  <svg viewBox="0 0 100 200" >
+    <g fill="#5e9563" fill-opacity=".8">
+      <polygon class="polymorph" points="0,0 0,0 0,0 0,200"></polygon>
+    </g>
+  </svg>
+  <div id="overlay"></div>
+
+  <nav class="navbar fixed-top navbar-expand-md navbar-dark bg-transparent navbar-theme" style="opacity: 1;">
+    <a class="navbar-brand" href="#accueil">
+      <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" style="height:40px; width:auto; margin-right:8px; vertical-align:middle;">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-md-center" id="main-menu">
+      <ul class="navbar-nav text-uppercase mt-4">
+        <li class="nav-item active">
+          <a class="nav-link" href="#accueil">Accueil <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#presentation">Présentation</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#utilisateurs">Utilisateurs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#cas-usage">Cas d'usage</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#integrations">Intégrations</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#faq">FAQ</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contact">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href=""></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href=""></a>
+        </li>
+          <a class=" p-0"
+            href="https://www.linkedin.com/in/damiendehoul"
+            target="_blank"
+            rel="noopener"
+            title="LinkedIn Damien Dehoul"
+            style="display: flex; align-items: center;">
+            <i class="fa fa-linkedin" style="font-size: 1.7rem; color: #5e9563;"></i>
+          </a>
+      </ul>
+    </div>
+  </nav>
+  <section id="accueil" data-section-name="accueil" class="parallax-window hero-section" data-parallax="scroll" >
+    <div class="hero-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4); z-index: 1;"></div>
+    <div class="container h-100 d-flex flex-column justify-content-center align-items-center align-items-md-start w-100 hero-content" style="position: relative; z-index: 2;">
+      <span class="badge-hero mb-3">Solutions de Facility Management</span>
+      <h1 class="display-3 font-weight-bold mb-2 hero-title text-center text-md-left">
+        Réinventez votre<br>
+        <span class="hero-title-green">Environnement de Travail</span>
+      </h1>
+      <h4 class="mb-4 font-weight-bold hero-subtitle">Plus intelligent, plus flexible, plus efficace.</h4>
+      <p class="mb-4 hero-desc">
+        Task FM simplifie la gestion de l'Environnement de Travail, améliore l'expérience collaborateurs et optimise l'efficacité opérationnelle.
+      </p>
+      <div class="d-flex flex-row gap-3">
+        <a href="#utilisateurs" class="btn btn-hero mr-3">Voir comment ça marche &rarr;</a>
+        <a href="#contact" class="btn btn-outline-hero"><i class="fa fa-calendar mr-2"></i>Je prends rendez-vous</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="presentation" data-section-name="presentation" class="presentation-section">
+    <div class="presentation-card">
+      <div class="row align-items-center">
+        <div class="col-lg-6 col-12 px-5 py-4">
+          <span class="badge-presentation mb-3">Présentation</span>
+          <h2 class="presentation-title mb-3">
+            Le monde du travail change. Task FM vous aide à anticiper et à gérer cette transformation.
+          </h2>
+          <h4 class="presentation-subtitle mb-3">
+            Une mission claire pour une valeur ajoutée concrète
+          </h4>
+          <p class="presentation-desc mb-2">
+            Task FM s'adapte à vos besoins pour un environnement de travail plus efficace et serein. Nous proposons une suite d'outils et de services qui vous permettent de mieux anticiper les changements et de piloter votre organisation de manière agile.
+          </p>
+          <p class="presentation-desc">
+            De la gestion des espaces à l'optimisation des processus, en passant par l'engagement collaborateurs, Task FM se positionne comme votre allié dans la transformation de vos modes de travail.
+          </p>
+        </div>
+        <div class="col-lg-6 col-12 px-0 d-flex justify-content-center align-items-center">
+          <div class="owl-carousel presentation-carousel" style="max-width:90%; max-height:400px;">
+            <div>
+              <img src="{{ url_for('static', filename='images/pres-1.jpg') }}" alt="Présentation 1" class="presentation-img img-fluid rounded-xl shadow">
+            </div>
+            <div>
+              <img src="{{ url_for('static', filename='images/pres-2.jpg') }}" alt="Présentation 2" class="presentation-img img-fluid rounded-xl shadow">
+            </div>
+            <div>
+              <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="Présentation 3" class="presentation-img img-fluid rounded-xl shadow">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="utilisateurs" data-section-name="utilisateurs" class="utilisateurs-section">
+    <div class="utilisateurs-card">
+      <div class="row align-items-center">
+        <div class="col-lg-12 col-12" >
+          <div class="owl-carousel utilisateurs-carousel">
+            <div style="position: relative; border-radius: 16px; overflow: hidden;">
+              <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=60" alt="Grands groupes" class="utilisateurs-img img-fluid rounded-xl shadow" style="width:100%; display:block;">
+              <div style="position: absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.45);"></div>
+              <div style="position: absolute; top:0; left:0; width:100%; height:100%; align-items:center; justify-content:center; z-index:1;">
+                <h3 class="utilisateurs-title">GRANDS GROUPES</h3><br/><br/>
+                <h6 class="utilisateurs-desc">Optimisation des sièges sociaux, reporting avancé et gestion multi-sites centralisée avec des tableaux de bord analytiques.
+                </h6>
+              </div>
+            </div>
+            <div style="position: relative; border-radius: 16px; overflow: hidden;">
+              <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=60" alt="Startups" class="utilisateurs-img img-fluid rounded-xl shadow" style="width:100%; display:block;">
+              <div style="position: absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.45);"></div>
+              <div style="position: absolute; top:0; left:0; width:100%; height:100%; align-items:center; justify-content:center; z-index:1;">
+                <h3 class="utilisateurs-title">STARTUPS & PME</h3><br/>
+                <h6 class="utilisateurs-desc">Faciliter le flex office et améliorer l'expérience employé avec des outils simples et efficaces à prix abordable.
+
+                </h6>
+              </div>
+            </div>
+            <div style="position: relative; border-radius: 16px; overflow: hidden;">
+              <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=60" alt="PME" class="utilisateurs-img img-fluid rounded-xl shadow" style="width:100%; display:block;">
+              <div style="position: absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.45);"></div>
+              <div style="position: absolute; top:0; left:0; width:100%; height:100%; align-items:center; justify-content:center; z-index:1;">
+                <h3 class="utilisateurs-title">ESPACES DE CO-WORKING</h3><br/>
+                <h6 class="utilisateurs-desc">Optimiser la gestion des salles et des réservations avec un système intuitif et une facturation automatisée.
+
+
+                </h6>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="cas-usage" data-section-name="cas-usage" class="container-fluid cas-usage-section">
+    <div class="cas-usage-card" >
+      <div class="cas-usage-tabs-wrapper">
+        <div class="cas-usage-tabs">
+          <button class="tab-btn active" data-tab="tab1">Bâtiments</button>
+          <button class="tab-btn" data-tab="tab2">Analyse</button>
+          <button class="tab-btn" data-tab="tab3">Équipements</button>
+          <button class="tab-btn" data-tab="tab4">Gestion</button>
+          <button class="tab-btn" data-tab="tab5">Énergies</button>
+        </div>
+      </div>
+      
+      <div class="tab-content show" id="tab1"
+           style="background-image: url('{{ url_for('static', filename='images/batiment.jpg') }}'); background-size: cover; background-position: center; border-radius: 16px; min-height: 60vh;">
+        <div class="tab-overlay"></div>
+        <div class="tab-inner">
+          <h2 class="cas-usage-title mb-3">Gestion des bâtiments</h2>
+          <h4>Optimisez la gestion de vos bâtiments avec notre plateforme.</h4>
+        </div>
+      </div>
+      <div class="tab-content" id="tab2"
+           style="position: relative; background-image: url('{{ url_for('static', filename='images/analyse.jpg') }}'); background-size: cover; background-position: center; border-radius: 16px; min-height: 60vh;">
+        <div style="position: absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.4); border-radius: 16px;"></div>
+        <div style="position: relative; z-index: 1; color: #fff;">
+          <h2 class="cas-usage-title mb-3">Analyse intelligente</h2>
+          <h4>Exploitez la data pour piloter vos espaces et services.</h4>
+        </div>
+      </div>
+      <div class="tab-content" id="tab3"
+           style="position: relative; background-image: url('{{ url_for('static', filename='images/equipements.jpg') }}'); background-size: cover; background-position: center; border-radius: 16px; min-height: 60vh;">
+        <div style="position: absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.4); border-radius: 16px;"></div>
+        <div style="position: relative; z-index: 1; color: #fff;">
+          <h2 class="cas-usage-title mb-3">Gestion des équipements</h2>
+          <h4>Surveillez et optimisez l'utilisation de vos équipements.</h4>
+        </div>
+      </div>
+      <div class="tab-content" id="tab4"
+           style="position: relative; background-image: url('{{ url_for('static', filename='images/gestion.jpg') }}'); background-size: cover; background-position: center; border-radius: 16px; min-height: 60vh;">
+        <div style="position: absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.4); border-radius: 16px;"></div>
+        <div style="position: relative; z-index: 1; color: #fff;">
+          <h2 class="cas-usage-title mb-3">Gestion centralisée</h2>
+          <h4>Pilotez tous vos services depuis une seule plateforme.</h4>
+        </div>
+      </div>
+      <div class="tab-content" id="tab5"
+           style="position: relative; background-image: url('{{ url_for('static', filename='images/energetique.jpg') }}'); background-size: cover; background-position: center; border-radius: 16px; min-height: 60vh;">
+        <div style="position: absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.4); border-radius: 16px;"></div>
+        <div style="position: relative; z-index: 1; color: #fff;">
+          <h2 class="cas-usage-title mb-3">Gestion des énergies</h2>
+          <h4>Optimisez la consommation énergétique de vos bâtiments.</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="integrations" data-section-name="integrations" class="integrations-section">
+    <div class="integrations-card">
+      <div class="row align-items-center">
+        <div class="col-lg-6 col-12 px-5 py-4">
+          <span class="badge-hero mb-3">Écosystème</span>
+          <h2 class="integrations-title mb-3">Intégrations & Partenariats</h2>
+          <p class="integrations-desc mb-4">
+            TaskFM s'intègre parfaitement avec vos outils existants pour une expérience fluide et cohérente.
+          </p>
+          <h3 class="integrations-subtitle mb-4">
+            Notre API ouverte permet une intégration avec presque tous les systèmes
+          </h3>
+          <a href="#" class="btn btn-hero mr-3">
+            Documentation technique
+            <span class="arrow">&rarr;</span>
+          </a>
+        </div>
+        <div class="col-lg-6 col-12 px-0 d-flex justify-content-center align-items-center">
+          <div class="integrations-logos-wrapper">
+            <img src="{{ url_for('static', filename='images/logos/google.png') }}" alt="Google" class="integration-logo move-1" />
+            <img src="{{ url_for('static', filename='images/logos/microsoft.svg') }}" alt="Microsoft" class="integration-logo move-2" />
+            <img src="{{ url_for('static', filename='images/logos/slack.png') }}" alt="Slack" class="integration-logo move-3" />
+            <img src="{{ url_for('static', filename='images/logos/zoom.png') }}" alt="Zoom" class="integration-logo move-4" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" data-section-name="faq" class="faq-section" style="margin-bottom: 5rem;">
+    <div class="container faq-container">
+      <div class="faq-card">
+        <h2 class="faq-title mb-4">FAQ</h2>
+        <div class="accordion" id="faqAccordion">
+          <div class="accordion-item">
+            <button class="accordion-header" type="button" data-toggle="collapse" data-target="#faq1" aria-expanded="true" aria-controls="faq1">
+              Task FM est-il compatible avec mon système actuel ?
+            </button>
+            <div id="faq1" class="accordion-body collapse show">
+              <p>
+                Task FM est une solution SaaS (Software as a Service) qui s'intègre facilement à votre système d'information actuel. Notre équipe technique vous accompagne dans le processus d'intégration pour garantir une transition en douceur.
+              </p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-header collapsed" type="button" data-toggle="collapse" data-target="#faq2" aria-expanded="false" aria-controls="faq2">
+              Comment se passe l'installation ?
+            </button>
+            <div id="faq2" class="accordion-body collapse">
+              <p>
+                L'installation de Task FM est simple et rapide. Une fois que vous avez souscrit à notre offre, vous recevez un lien de téléchargement pour accéder à la plateforme. Notre équipe technique est disponible pour vous guider à chaque étape.
+              </p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-header collapsed" type="button" data-toggle="collapse" data-target="#faq3" aria-expanded="false" aria-controls="faq3">
+              Quels sont les bénéfices pour les employés ?
+            </button>
+            <div id="faq3" class="accordion-body collapse">
+              <p>
+                Task FM offre une expérience utilisateur intuitive et personnalisée pour les employés. Ils peuvent facilement réserver des espaces de travail, signaler des incidents, accéder à des informations pratiques et rester informés sur les événements à venir. L'application permet également de monitorer toutes les resources, les consommations et ainsi avoir une vision claire des opérations de l'entreprise.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="mt-4 text-center">
+          <p class="faq-contact">
+            Vous avez une question ? <a href="#contact" class="faq-link">Contactez-nous</a> via notre messagerie.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" data-section-name="contact" class="contact-section">
+    <div class="contact-card">
+      <h2 class="contact-title text-center">Contactez-nous</h2>
+      <p class="contact-desc text-center">
+        Vous avez des questions ? Remplissez le formulaire ci-dessous et nous vous répondrons dans les plus brefs délais.
+      </p>
+      <form class="contact-form">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="contactName">Nom & Prénom</label>
+            <input type="text" class="form-control" id="contactName" placeholder="Votre nom et prénom">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="contactEmail">Email</label>
+            <input type="email" class="form-control" id="contactEmail" placeholder="Votre email">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="contactSubject">Objet</label>
+          <input type="text" class="form-control" id="contactSubject" placeholder="L'objet de votre message">
+        </div>
+        <div class="form-group">
+          <label for="contactMessage">Message</label>
+          <textarea class="form-control" id="contactMessage" rows="3" placeholder="Votre message"></textarea>
+        </div>
+        <div class="text-center mt-4">
+          <button type="submit" class="btn btn-hero px-5 py-2">Envoyer</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Bouton flottant Calendly -->
+  <button id="calendly-float-btn"
+    style="
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      background: #5e9563;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 64px;
+      height: 64px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      z-index: 9999;
+      cursor: pointer;
+      transition: background 0.2s;
+    "
+    title="Prendre rendez-vous"
+  >
+    <i class="fa fa-calendar"></i>
+  </button>
+
+  <!-- Modale Calendly -->
+  <div id="calendly-modal-overlay" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.5); z-index:10000; align-items:center; justify-content:center;">
+    <div id="calendly-modal-content" style="background:#fff; border-radius:16px; max-width:90vw; width:500px; max-height:90vh; padding:0; position:relative; box-shadow:0 8px 32px rgba(0,0,0,0.18); display:flex; flex-direction:column;">
+      <button id="calendly-modal-close" style="position:absolute; top:12px; right:18px; background:none; border:none; font-size:2rem; color:#333; cursor:pointer; z-index:2;">&times;</button>
+      <iframe
+        src="https://calendly.com/damien-dehoul-taskfm"
+        width="100%"
+        height="600"
+        style="border:none; border-radius:0 0 16px 16px;"
+        allowtransparency="true"
+        title="Calendly - Damien Dehoul"
+      ></iframe>
+    </div>
+  </div>
+
+  <!-- JS via CDN (versions du code de base) -->
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollify/1.0.19/jquery.scrollify.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js"></script>
+  <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/parallax.js/1.4.2/parallax.min.js"></script>
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  <script>
+    $(document).ready(function() {
+      // Initialisation de parallax.js
+      $('.parallax-window').parallax({
+        imageSrc: $('.parallax-window').data('image-src'),
+        naturalWidth: 1920,
+        naturalHeight: 1080,
+        speed: 0.5
+      });
+
+      $('.tab-btn').on('click', function() {
+        var tabId = $(this).data('tab');
+        $('.tab-btn').removeClass('active');
+        $(this).addClass('active');
+        $('.tab-content').removeClass('show');
+        $('#' + tabId).addClass('show');
+      });
+    });
+  </script>
+  <script>
+    document.getElementById('calendly-float-btn').onclick = function() {
+      document.getElementById('calendly-modal-overlay').style.display = 'flex';
+    };
+    document.getElementById('calendly-modal-close').onclick = function() {
+      document.getElementById('calendly-modal-overlay').style.display = 'none';
+    };
+    // Fermer la modale si on clique en dehors du contenu
+    document.getElementById('calendly-modal-overlay').onclick = function(e) {
+      if (e.target === this) this.style.display = 'none';
+    };
+  </script>
+  <script>
+    $(document).ready(function(){
+      $('.utilisateurs-carousel').owlCarousel({
+        items: 1,
+        loop: true,
+        autoplay: true,
+        autoplayTimeout: 4000,
+        autoplayHoverPause: false,
+        dots: true,
+        nav: false,
+        smartSpeed: 900,
+        animateOut: 'fadeOut',
+        animateIn: 'fadeIn'
+      });
+
+      $('.presentation-carousel').owlCarousel({
+        items: 1,
+        loop: true,
+        autoplay: true,
+        autoplayTimeout: 4000,
+        autoplayHoverPause: false,
+        dots: true,
+        nav: false,
+        smartSpeed: 900,
+        animateOut: 'fadeOut',
+        animateIn: 'fadeIn'
+      });
+    });
+  </script>
+  <script>
+    $(document).ready(function() {
+      // Masquer tous les panels sauf ceux avec .show au chargement
+      $('.accordion-body').each(function() {
+        if (!$(this).hasClass('show')) {
+          $(this).hide();
+        }
+      });
+
+      // Toggle au clic
+      $('.accordion-header').on('click', function() {
+        var $header = $(this);
+        var $body = $header.next('.accordion-body');
+
+        // Si déjà ouvert, referme
+        if ($body.hasClass('show')) {
+          $body.removeClass('show').slideUp(200);
+          $header.addClass('collapsed');
+        } else {
+          // Ouvre ce panel, referme les autres
+          $('.accordion-body.show').removeClass('show').slideUp(200);
+          $('.accordion-header').addClass('collapsed');
+          $body.addClass('show').slideDown(200);
+          $header.removeClass('collapsed');
+        }
+      });
+    });
+  </script>
+  <script>
+    // Pour tous les boutons accordéon, on force { passive: false }
+    document.querySelectorAll('.accordion-header').forEach(function(btn) {
+      btn.addEventListener('click', function(e) {
+        // Ton code ici si besoin
+      }, { passive: false });
+    });
+  </script>
+</body>
+</html> 

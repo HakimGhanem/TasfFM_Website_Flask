@@ -1,0 +1,12 @@
+runtime: python39  # ou la version Python que vous utilisez
+entrypoint: gunicorn -b :$PORT app:app
+
+instance_class: F1  # classe d'instance par défaut
+
+automatic_scaling:
+  target_cpu_utilization: 0.65
+  min_instances: 1
+  max_instances: 10
+
+env_variables:
+  FLASK_ENV: "production" 
