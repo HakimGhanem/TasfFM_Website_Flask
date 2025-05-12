@@ -643,7 +643,10 @@ section {
 }
 
 
-
+.navbar-expand-md .navbar-nav .nav-link {
+  padding-right: 1.5rem!important;
+  padding-left: 1.5rem!important;
+}
 .tab-btn {
   background: #e6f4ea;
   color: #222;
@@ -719,7 +722,9 @@ a[href*="linkedin.com"]:focus {
   font-size: 1.2rem;
 }
 
-
+.template-section{
+  padding: 140px 0;
+}
 
 @media (max-width: 768px) {
   section:first-of-type {
@@ -808,6 +813,9 @@ a[href*="linkedin.com"]:focus {
   .integrations-section{
     height: 35vh;
   }
+  .calendly-float-btn {
+    display: none;
+  }
 } 
 
 
@@ -815,6 +823,7 @@ a[href*="linkedin.com"]:focus {
   section:first-of-type {
     padding-top: 100px;
   }
+  
   .navbar-theme {
     background: none !important;
   }
@@ -847,9 +856,12 @@ a[href*="linkedin.com"]:focus {
   .presentation-card {
     padding: 11.5rem 0.5rem;
   }
+  .contact-card {
+    padding: 8.5rem 0.5rem;
+  }
 
   .integrations-card {
-    padding: 11.5rem 0.5rem;
+    padding: 8.5rem 0.5rem;
   }
 
   .faq-section {
@@ -857,5 +869,12 @@ a[href*="linkedin.com"]:focus {
   }
   .presentation-title {
     font-size: 1.5rem;
+  }
+  .faq-card {
+    height: 40vh;
+  }
+
+  .calendly-float-btn {
+    display: none;
   }
 }
