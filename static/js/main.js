@@ -31,6 +31,9 @@ $(document).ready(function(){
   });
 
   function scrollspy(sectionName){
+    const polymorph = document.querySelector('.parent-polygon');
+    polymorph.style.display = 'none';
+    
     var morphing1 = anime({
       targets: '.polymorph',
       points: [
@@ -42,7 +45,17 @@ $(document).ready(function(){
       ],
       easing: 'easeOutQuad',
       duration: 1600,
-      loop: false
+      loop: false,
+      begin: function() {
+        // Ensure the element is hidden at the start of the animation
+        polymorph.style.display = 'block';
+        console.log('Animation started');
+      },
+      complete: function() {
+        // Show the .polymorph element after the animation finishes
+        polymorph.style.display = 'none';
+        console.log('Animation completed');
+      }
     });
     $('.navbar').animate({'opacity':0},500);
     $('.navbar-nav li').removeClass('active');

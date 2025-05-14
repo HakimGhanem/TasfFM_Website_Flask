@@ -33,24 +33,25 @@
 
     gtag('config', 'G-42TV75YQSB');
   </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-  <svg viewBox="0 0 100 200" >
+  <svg viewBox="0 0 100 200" class="parent-polygon">
     <g fill="#5e9563" fill-opacity=".8">
       <polygon class="polymorph" points="0,0 0,0 0,0 0,200"></polygon>
     </g>
   </svg>
   <div id="overlay"></div>
 
-  <nav class="navbar fixed-top navbar-expand-md navbar-dark bg-transparent navbar-theme" style="opacity: 1;">
+  <nav class="mt-2 navbar fixed-top navbar-expand-md navbar-dark bg-transparent navbar-theme" style="opacity: 1;">
     <a class="navbar-brand" href="#accueil">
       <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" style="height:40px; width:auto; margin-right:8px; vertical-align:middle;">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse justify-content-md-center" id="main-menu">
-      <ul class="navbar-nav text-uppercase mt-4">
+    <div class="collapse navbar-collapse justify-content-md-center align-items-center" id="main-menu">
+      <ul class="navbar-nav text-uppercase align-items-center">
         <li class="nav-item active">
           <a class="nav-link" href="#accueil">Accueil <span class="sr-only">(current)</span></a>
         </li>
@@ -89,11 +90,12 @@
       </ul>
     </div>
   </nav>
+  
   <section id="accueil" data-section-name="accueil" class="parallax-window hero-section" data-parallax="scroll" >
     <div class="hero-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4); z-index: 1;"></div>
-    <div class="container h-100 d-flex flex-column justify-content-center align-items-center align-items-md-start w-100 hero-content" style="position: relative; z-index: 2;">
+    <div class="container h-100 d-flex flex-column justify-content-center align-items-center align-items-md-start w-100 hero-content text-md-start text-center" style="position: relative; z-index: 2;">
       <span class="badge-hero mb-3">Solutions de Facility Management</span>
-      <h1 class="display-3 font-weight-bold mb-2 hero-title text-center text-md-left">
+      <h1 class="display-presentation font-weight-bold mb-2 hero-title text-center text-md-left">
         Réinventez votre<br>
         <span class="hero-title-green">Environnement de Travail</span>
       </h1>
@@ -101,8 +103,8 @@
       <p class="mb-4 hero-desc">
         Task FM simplifie la gestion de l'Environnement de Travail, améliore l'expérience collaborateurs et optimise l'efficacité opérationnelle.
       </p>
-      <div class="d-flex flex-row gap-3">
-        <a href="#utilisateurs" class="btn btn-hero mr-3">Voir comment ça marche &rarr;</a>
+      <div class="d-flex flex-column flex-md-row gap-3">
+        <a href="#utilisateurs" class="btn btn-hero mr-md-3 mb-3 mb-md-0">Voir comment ça marche &rarr;</a>
         <a href="#contact" class="btn btn-outline-hero"><i class="fa fa-calendar mr-2"></i>Je prends rendez-vous</a>
       </div>
     </div>
@@ -127,7 +129,7 @@
           </p>
         </div>
         <div class="col-lg-6 col-12 px-0 d-flex justify-content-center align-items-center">
-          <div class="owl-carousel presentation-carousel" style="max-width:90%; max-height:400px;">
+          <div class="owl-carousel presentation-carousel" style="max-width: 600px; max-height:500px;">
             <div>
               <img src="{{ url_for('static', filename='images/pres-1.jpg') }}" alt="Présentation 1" class="presentation-img img-fluid rounded-xl shadow">
             </div>
@@ -148,8 +150,8 @@
       <div class="row align-items-center">
         <div class="col-lg-12 col-12" >
           <div class="owl-carousel utilisateurs-carousel">
-            <div style="position: relative; border-radius: 16px; overflow: hidden;">
-              <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=60" alt="Grands groupes" class="utilisateurs-img img-fluid rounded-xl shadow" style="width:100%; display:block;">
+            <div style="position: relative; border-radius: 16px; overflow: hidden; height: 400px;">
+              <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=60" alt="Grands groupes" class="utilisateurs-img img-fluid h-100 rounded-xl shadow" style="width:100%; display:block;">
               <div style="position: absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.45);"></div>
               <div style="position: absolute; top:0; left:0; width:100%; height:100%; align-items:center; justify-content:center; z-index:1;">
                 <h3 class="utilisateurs-title">GRANDS GROUPES</h3><br/><br/>
@@ -157,8 +159,8 @@
                 </h6>
               </div>
             </div>
-            <div style="position: relative; border-radius: 16px; overflow: hidden;">
-              <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=60" alt="Startups" class="utilisateurs-img img-fluid rounded-xl shadow" style="width:100%; display:block;">
+            <div style="position: relative; border-radius: 16px; overflow: hidden; height: 400px;">
+              <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=60" alt="Startups" class="utilisateurs-img img-fluid h-100 rounded-xl shadow" style="width:100%; display:block;">
               <div style="position: absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.45);"></div>
               <div style="position: absolute; top:0; left:0; width:100%; height:100%; align-items:center; justify-content:center; z-index:1;">
                 <h3 class="utilisateurs-title">STARTUPS & PME</h3><br/>
@@ -167,8 +169,8 @@
                 </h6>
               </div>
             </div>
-            <div style="position: relative; border-radius: 16px; overflow: hidden;">
-              <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=60" alt="PME" class="utilisateurs-img img-fluid rounded-xl shadow" style="width:100%; display:block;">
+            <div style="position: relative; border-radius: 16px; overflow: hidden; height: 400px;">
+              <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=60" alt="PME" class="utilisateurs-img img-fluid h-100 rounded-xl shadow" style="width:100%; display:block;">
               <div style="position: absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.45);"></div>
               <div style="position: absolute; top:0; left:0; width:100%; height:100%; align-items:center; justify-content:center; z-index:1;">
                 <h3 class="utilisateurs-title">ESPACES DE CO-WORKING</h3><br/>
@@ -189,50 +191,52 @@
     <div class="cas-usage-card" >
       <div class="cas-usage-tabs-wrapper">
         <div class="cas-usage-tabs">
-          <button class="tab-btn active" data-tab="tab1">Bâtiments</button>
-          <button class="tab-btn" data-tab="tab2">Analyse</button>
-          <button class="tab-btn" data-tab="tab3">Équipements</button>
-          <button class="tab-btn" data-tab="tab4">Gestion</button>
-          <button class="tab-btn" data-tab="tab5">Énergies</button>
+          <div class="tabs-scroll-container">
+            <button class="tab-btn active" data-tab="tab1">Bâtiments</button>
+            <button class="tab-btn" data-tab="tab2">Analyse</button>
+            <button class="tab-btn" data-tab="tab3">Équipements</button>
+            <button class="tab-btn" data-tab="tab4">Gestion</button>
+            <button class="tab-btn" data-tab="tab5">Énergies</button>
+          </div>
         </div>
       </div>
       
       <div class="tab-content show" id="tab1"
-           style="background-image: url('{{ url_for('static', filename='images/batiment.jpg') }}'); background-size: cover; background-position: center; border-radius: 16px; min-height: 60vh;">
+           style="position: relative; background-image: url('{{ url_for('static', filename='images/batiment.jpg') }}'); background-size: cover; background-position: center; border-radius: 16px; min-height: 60vh;">
         <div class="tab-overlay"></div>
-        <div class="tab-inner">
+        <div class="tab-content-inner">
           <h2 class="cas-usage-title mb-3">Gestion des bâtiments</h2>
           <h4>Optimisez la gestion de vos bâtiments avec notre plateforme.</h4>
         </div>
       </div>
       <div class="tab-content" id="tab2"
            style="position: relative; background-image: url('{{ url_for('static', filename='images/analyse.jpg') }}'); background-size: cover; background-position: center; border-radius: 16px; min-height: 60vh;">
-        <div style="position: absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.4); border-radius: 16px;"></div>
-        <div style="position: relative; z-index: 1; color: #fff;">
+        <div class="tab-overlay"></div>
+        <div class="tab-content-inner">
           <h2 class="cas-usage-title mb-3">Analyse intelligente</h2>
           <h4>Exploitez la data pour piloter vos espaces et services.</h4>
         </div>
       </div>
       <div class="tab-content" id="tab3"
            style="position: relative; background-image: url('{{ url_for('static', filename='images/equipements.jpg') }}'); background-size: cover; background-position: center; border-radius: 16px; min-height: 60vh;">
-        <div style="position: absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.4); border-radius: 16px;"></div>
-        <div style="position: relative; z-index: 1; color: #fff;">
+        <div class="tab-overlay"></div>
+        <div class="tab-content-inner">
           <h2 class="cas-usage-title mb-3">Gestion des équipements</h2>
           <h4>Surveillez et optimisez l'utilisation de vos équipements.</h4>
         </div>
       </div>
       <div class="tab-content" id="tab4"
            style="position: relative; background-image: url('{{ url_for('static', filename='images/gestion.jpg') }}'); background-size: cover; background-position: center; border-radius: 16px; min-height: 60vh;">
-        <div style="position: absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.4); border-radius: 16px;"></div>
-        <div style="position: relative; z-index: 1; color: #fff;">
+        <div class="tab-overlay"></div>
+        <div class="tab-content-inner">
           <h2 class="cas-usage-title mb-3">Gestion centralisée</h2>
           <h4>Pilotez tous vos services depuis une seule plateforme.</h4>
         </div>
       </div>
       <div class="tab-content" id="tab5"
            style="position: relative; background-image: url('{{ url_for('static', filename='images/energetique.jpg') }}'); background-size: cover; background-position: center; border-radius: 16px; min-height: 60vh;">
-        <div style="position: absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.4); border-radius: 16px;"></div>
-        <div style="position: relative; z-index: 1; color: #fff;">
+        <div class="tab-overlay"></div>
+        <div class="tab-content-inner">
           <h2 class="cas-usage-title mb-3">Gestion des énergies</h2>
           <h4>Optimisez la consommation énergétique de vos bâtiments.</h4>
         </div>
@@ -243,7 +247,7 @@
   <section id="integrations" data-section-name="integrations" class="integrations-section template-section">
     <div class="integrations-card">
       <div class="row align-items-center">
-        <div class="col-lg-6 col-12 px-5 py-4">
+        <div class="col-lg-6 col-12 px-2 py-3">
           <span class="badge-hero mb-3">Écosystème</span>
           <h2 class="integrations-title mb-3">Intégrations & Partenariats</h2>
           <p class="integrations-desc mb-4">
@@ -252,7 +256,7 @@
           <h3 class="integrations-subtitle mb-4">
             Notre API ouverte permet une intégration avec presque tous les systèmes
           </h3>
-          <a href="#" class="btn btn-hero mr-3">
+          <a href="#" class="btn btn-hero">
             Documentation technique
             <span class="arrow">&rarr;</span>
           </a>
@@ -269,7 +273,7 @@
     </div>
   </section>
 
-  <section id="faq" data-section-name="faq" class="faq-section template-section" style="margin-bottom: 5rem;">
+  <section id="faq" data-section-name="faq" class="faq-section template-section">
     <div class="container faq-container">
       <div class="faq-card">
         <h2 class="faq-title mb-4">FAQ</h2>
@@ -322,11 +326,11 @@
       </p>
       <form class="contact-form">
         <div class="form-row">
-          <div class="form-group col-md-6">
+          <div class="form-group col-md-6 col-12 mb-3">
             <label for="contactName">Nom & Prénom</label>
             <input type="text" class="form-control" id="contactName" placeholder="Votre nom et prénom">
           </div>
-          <div class="form-group col-md-6">
+          <div class="form-group col-md-6 col-12 mb-3">
             <label for="contactEmail">Email</label>
             <input type="email" class="form-control" id="contactEmail" placeholder="Votre email">
           </div>
@@ -465,22 +469,25 @@
           $(this).hide();
         }
       });
-
+    
       // Toggle au clic
-      $('.accordion-header').on('click', function() {
+      $(document).on('click', '.accordion-header', function() {
         var $header = $(this);
         var $body = $header.next('.accordion-body');
-
+    
         // Si déjà ouvert, referme
         if ($body.hasClass('show')) {
           $body.removeClass('show').slideUp(200);
           $header.addClass('collapsed');
+          $header.attr('aria-expanded', 'false');
         } else {
           // Ouvre ce panel, referme les autres
-          $('.accordion-body.show').removeClass('show').slideUp(200);
-          $('.accordion-header').addClass('collapsed');
-          $body.addClass('show').slideDown(200);
-          $header.removeClass('collapsed');
+          $('.accordion-body').removeClass('show').slideUp(200); // Ferme tous les autres
+          $('.accordion-header').addClass('collapsed'); // Ajoute la classe "collapsed" à tous les autres
+          $('.accordion-header').attr('aria-expanded', 'false'); // Met à jour l'attribut aria-expanded de tous les autres
+          $body.addClass('show').slideDown(200); // Ouvre le panel actuel
+          $header.removeClass('collapsed'); // Retire la classe "collapsed" du header actuel
+          $header.attr('aria-expanded', 'true'); // Met à jour l'attribut aria-expanded du header actuel
         }
       });
     });
