@@ -92,7 +92,8 @@
   </nav>
   
   <section id="accueil" data-section-name="accueil" class="parallax-window hero-section" data-parallax="scroll" >
-    <div class="hero-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4); z-index: 1;"></div>
+    <div class="earth-container"></div>
+    <div class="hero-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.2); z-index: 1;"></div>
     <div class="container h-100 d-flex flex-column justify-content-center align-items-center align-items-md-start w-100 hero-content text-md-start text-center" style="position: relative; z-index: 2;">
       <span class="badge-hero mb-3">Solutions de Facility Management</span>
       <h1 class="display-presentation font-weight-bold mb-2 hero-title text-center text-md-left">
@@ -500,5 +501,105 @@
       }, { passive: false });
     });
   </script>
+
+  <!-- Importation de Three.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Création de la scène Three.js
+  const container = document.querySelector('.earth-container');
+  
+  // Initialisation de la scène, caméra et renderer
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+  
+  renderer.setSize(window.innerWidth, container.clientHeight);
+  renderer.setPixelRatio(window.devicePixelRatio);
+  container.appendChild(renderer.domElement);
+  
+  // Création du globe terrestre
+  const earthGeometry = new THREE.SphereGeometry(5, 64, 64);
+  
+  // Chargement des textures
+  const textureLoader = new THREE.TextureLoader();
+  
+  // Texture de la terre (jour)
+  const earthTexture = textureLoader.load('https://raw.githubusercontent.com/mrdoob/three.js/dev/examples/textures/planets/earth_atmos_2048.jpg');
+  
+  // Texture des nuages
+  const cloudsTexture = textureLoader.load('https://raw.githubusercontent.com/mrdoob/three.js/dev/examples/textures/planets/earth_clouds_1024.png');
+  
+  // Texture de la terre (nuit)
+  const earthNightTexture = textureLoader.load('https://www.solarsystemscope.com/textures/download/2k_earth_nightmap.jpg');
+  
+  // Texture de normales pour les reliefs
+  const earthBumpMap = textureLoader.load('https://raw.githubusercontent.com/mrdoob/three.js/dev/examples/textures/planets/earth_normal_2048.jpg');
+  
+  // Matériau de la terre avec effets de relief
+  const earthMaterial = new THREE.MeshPhongMaterial({
+    map: earthTexture,
+    bumpMap: earthBumpMap,
+    bumpScale: 0.05,
+    specularMap: earthNightTexture,
+    specular: new THREE.Color('#2e7d4a'),
+    shininess: 5
+  });
+  
+  // Création de la terre
+  const earth = new THREE.Mesh(earthGeometry, earthMaterial);
+  scene.add(earth);
+  
+  // Création des nuages
+  const cloudsGeometry = new THREE.SphereGeometry(5.1, 64, 64); 
+  const cloudsMaterial = new THREE.MeshPhongMaterial({
+    map: cloudsTexture,
+    transparent: true,
+    opacity: 0.4
+  });
+  
+  const clouds = new THREE.Mesh(cloudsGeometry, cloudsMaterial);
+  scene.add(clouds);
+  
+  // Lumière ambiante
+  const ambientLight = new THREE.AmbientLight(0x555555);
+  scene.add(ambientLight);
+  
+  // Lumière directionnelle (soleil)
+  const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+  directionalLight.position.set(5, 3, 5);
+  scene.add(directionalLight);
+  
+  // Position de la caméra
+  camera.position.z = 10;
+  camera.position.y = 0;
+  camera.position.x = 0;
+  
+  // Animation du globe
+  function animate() {
+    requestAnimationFrame(animate);
+    
+    // Rotation de la terre
+    earth.rotation.y += 0.0015;
+    
+    // Rotation des nuages (plus lente)
+    clouds.rotation.y += 0.0008;
+    
+    renderer.render(scene, camera);
+  }
+  
+  // Responsive : mise à jour lors du redimensionnement de la fenêtre
+  function handleResize() {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, container.clientHeight);
+  }
+  
+  window.addEventListener('resize', handleResize);
+  
+  animate();
+});
+</script>
 </body>
 </html> 

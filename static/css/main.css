@@ -229,6 +229,10 @@ section {
   max-height: none;
 }
 
+.owl-dot {
+  background: #ffffff;
+}
+
 .utilisateurs-title {
   font-weight: 550;
   font-size: clamp(2rem, 5vw, 3.25rem); /* Taille responsive */
@@ -1234,5 +1238,40 @@ a[href*="linkedin.com"]:focus {
   
   .utilisateur-nav {
     display: none;
+  }
+}
+
+.earth-container {
+  position: absolute;
+  transform: translateY(50%) scale(1.5);
+  filter: grayscale(0.5) hue-rotate(-90deg);
+  opacity: 0.75;
+  bottom: -150px;
+  left: 0;
+  width: 100%;
+  height: 500px;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+@media (max-width: 991px) {
+  .earth-container {
+    height: 400px;
+    bottom: -120px;
+  }
+}
+
+@media (max-width: 767px) {
+  .earth-container {
+    height: 350px;
+    bottom: -100px;
+  }
+}
+
+@media (max-width: 575px) {
+  .earth-container {
+    height: 300px;
+    bottom: -80px;
   }
 }
