@@ -1275,3 +1275,223 @@ a[href*="linkedin.com"]:focus {
     bottom: -80px;
   }
 }
+
+/* Effet de particules */
+.particles-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Navigation latérale */
+.side-navigation {
+  position: fixed;
+  top: 50%;
+  right: 40px;
+  transform: translateY(-50%);
+  z-index: 100;
+}
+
+.nav-indicators {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav-dot {
+  width: 12px;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nav-dot.active {
+  background: #5e9563;
+  transform: scale(1.3);
+}
+
+.nav-tooltip {
+  position: absolute;
+  right: 25px;
+  top: -5px;
+  background: #fff;
+  color: #333;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  opacity: 0;
+  transform: translateX(10px);
+  transition: all 0.3s ease;
+  pointer-events: none;
+  white-space: nowrap;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.nav-dot:hover .nav-tooltip {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Indicateur de section */
+.section-indicator {
+  position: fixed;
+  bottom: 40px;
+  left: 40px;
+  z-index: 100;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.section-indicator:hover {
+  opacity: 1;
+}
+
+.section-indicator-content {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 10px 15px;
+  border-radius: 30px;
+  color: #fff;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.section-progress {
+  width: 60px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.section-progress-bar {
+  height: 100%;
+  width: 0;
+  background: #5e9563;
+  transition: width 0.3s ease;
+}
+
+#current-section-name {
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+}
+
+/* Éléments flottants */
+.floating-elements {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.floating-element {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.2;
+  filter: blur(40px);
+}
+
+.elem-1 {
+  background: #5e9563;
+  width: 300px;
+  height: 300px;
+  top: 20%;
+  left: 10%;
+}
+
+.elem-2 {
+  background: #3a6a3e;
+  width: 250px;
+  height: 250px;
+  top: 60%;
+  right: 5%;
+}
+
+.elem-3 {
+  background: #8bc34a;
+  width: 200px;
+  height: 200px;
+  bottom: 10%;
+  left: 25%;
+}
+
+.elem-4 {
+  background: #4e8753;
+  width: 350px;
+  height: 350px;
+  top: 5%;
+  right: 15%;
+}
+
+/* Effets parallax généraux */
+section {
+  position: relative;
+  overflow: hidden;
+}
+
+.parallax-element {
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+
+/* Animation d'apparition */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0px);
+  transition: all 0.8s ease;
+}
+
+/* Effet de couleur sur les sections */
+section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(94, 149, 99, 0.15) 0%, rgba(15, 58, 34, 0) 70%);
+  pointer-events: none;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .side-navigation {
+    right: 20px;
+  }
+  
+  .section-indicator {
+    left: 20px;
+    bottom: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  .floating-element {
+    opacity: 0.1;
+    filter: blur(60px);
+  }
+
+  .side-navigation {
+    display: none;
+  }
+}

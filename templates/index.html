@@ -392,6 +392,57 @@
     </div>
   </div>
 
+  <!-- Conteneur de particules pour effet de fond -->
+  <div id="particles-js" class="particles-container"></div>
+
+  <!-- Indicateur de section -->
+  <div class="section-indicator">
+    <div class="section-indicator-content">
+      <span id="current-section-name">Accueil</span>
+      <div class="section-progress">
+        <div class="section-progress-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation latérale améliorée -->
+  <div class="side-navigation">
+    <div class="nav-indicators">
+      <a href="#accueil" class="nav-dot active" data-section="accueil" data-color="#5e9563">
+        <span class="nav-tooltip">Accueil</span>
+      </a>
+      <a href="#presentation" class="nav-dot" data-section="presentation" data-color="#5e9563">
+        <span class="nav-tooltip">Présentation</span>
+      </a>
+      <a href="#utilisateurs" class="nav-dot" data-section="utilisateurs" data-color="#5e9563">
+        <span class="nav-tooltip">Utilisateurs</span>
+      </a>
+      <a href="#cas-usage" class="nav-dot" data-section="cas-usage" data-color="#5e9563">
+        <span class="nav-tooltip">Cas d'usage</span>
+      </a>
+      <a href="#integrations" class="nav-dot" data-section="integrations" data-color="#5e9563">
+        <span class="nav-tooltip">Intégrations</span>
+      </a>
+      <a href="#faq" class="nav-dot" data-section="faq" data-color="#5e9563">
+        <span class="nav-tooltip">FAQ</span>
+      </a>
+      <a href="#contact" class="nav-dot" data-section="contact" data-color="#5e9563">
+        <span class="nav-tooltip">Contact</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Éléments de décoration flottants -->
+  <div class="floating-elements">
+    <div class="floating-element elem-1"></div>
+    <div class="floating-element elem-2"></div>
+    <div class="floating-element elem-3"></div>
+    <div class="floating-element elem-4"></div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
   <!-- JS via CDN (versions du code de base) -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
@@ -579,12 +630,13 @@ document.addEventListener('DOMContentLoaded', function() {
   // Animation du globe
   function animate() {
     requestAnimationFrame(animate);
-    
+    const delta = 0.4;
+
     // Rotation de la terre
-    earth.rotation.y += 0.0015;
+    earth.rotation.y += 0.001 * delta;
     
     // Rotation des nuages (plus lente)
-    clouds.rotation.y += 0.0008;
+    clouds.rotation.y += 0.0008 * delta;
     
     renderer.render(scene, camera);
   }
@@ -599,6 +651,161 @@ document.addEventListener('DOMContentLoaded', function() {
   window.addEventListener('resize', handleResize);
   
   animate();
+});
+</script>
+
+<script>
+  // Initialisation des particules
+document.addEventListener('DOMContentLoaded', function() {
+  // Configuration des particules
+  particlesJS('particles-js', {
+    particles: {
+      number: { value: 80, density: { enable: true, value_area: 800 } },
+      color: { value: '#5e9563' },
+      shape: { type: 'circle' },
+      opacity: { value: 0.5, random: true, anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false } },
+      size: { value: 3, random: true, anim: { enable: false } },
+      line_linked: { enable: true, distance: 150, color: '#5e9563', opacity: 0.4, width: 1 },
+      move: {
+        enable: true,
+        speed: 1,
+        direction: 'none',
+        random: true,
+        straight: false,
+        out_mode: 'out',
+        bounce: false
+      }
+    },
+    interactivity: {
+      detect_on: 'canvas',
+      events: {
+        onhover: { enable: true, mode: 'grab' },
+        onclick: { enable: true, mode: 'push' },
+        resize: true
+      },
+      modes: {
+        grab: { distance: 140, line_linked: { opacity: 1 } },
+        push: { particles_nb: 4 }
+      }
+    },
+    retina_detect: true
+  });
+
+  // Effet parallax sur les éléments flottants
+  const floatingElements = document.querySelectorAll('.floating-element');
+  
+  window.addEventListener('mousemove', function(e) {
+    const x = e.clientX / window.innerWidth;
+    const y = e.clientY / window.innerHeight;
+    
+    floatingElements.forEach((elem, index) => {
+      const speed = 0.03 + (index * 0.01);
+      const xOffset = (x - 0.5) * speed * 100;
+      const yOffset = (y - 0.5) * speed * 100;
+      
+      elem.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
+    });
+  });
+
+  // Effet parallax sur les sections
+  const sections = document.querySelectorAll('section');
+  
+  window.addEventListener('scroll', function() {
+    const scrollTop = window.scrollY;
+    
+    sections.forEach(section => {
+      const parallaxElements = section.querySelectorAll('.parallax-element');
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.offsetHeight;
+      
+      // Vérifier si la section est visible
+      if (scrollTop + window.innerHeight > sectionTop && scrollTop < sectionTop + sectionHeight) {
+        const scrollPosition = scrollTop - sectionTop;
+        const scrollPercentage = scrollPosition / sectionHeight;
+        
+        parallaxElements.forEach((elem, index) => {
+          const speed = parseFloat(elem.dataset.speed || 0.2);
+          const yOffset = scrollPosition * speed;
+          elem.style.transform = `translateY(${-yOffset}px)`;
+        });
+      }
+    });
+    
+    // Mise à jour de l'indicateur de progression
+    updateSectionIndicator(scrollTop);
+    updateScrollReveal(scrollTop);
+  });
+
+  // Ajout de la classe parallax-element aux titres et sous-titres
+  const titleElements = document.querySelectorAll('h1, h2, .badge-hero, .badge-presentation');
+  titleElements.forEach(elem => {
+    elem.classList.add('parallax-element');
+    elem.dataset.speed = '0.2';
+  });
+
+  // Mise à jour de l'indicateur de section
+  function updateSectionIndicator(scrollTop) {
+    // Calcul de la progression globale
+    const docHeight = Math.max(
+      document.body.scrollHeight,
+      document.documentElement.scrollHeight,
+      document.body.offsetHeight,
+      document.documentElement.offsetHeight
+    );
+    const windowHeight = window.innerHeight;
+    const scrollPercent = (scrollTop / (docHeight - windowHeight)) * 100;
+    
+    document.querySelector('.section-progress-bar').style.width = `${scrollPercent}%`;
+    
+    // Détection de la section active
+    const scrollPosition = scrollTop + (window.innerHeight / 2);
+    let currentSection = null;
+    
+    sections.forEach(section => {
+      if (
+        scrollPosition >= section.offsetTop &&
+        scrollPosition < section.offsetTop + section.offsetHeight
+      ) {
+        currentSection = section;
+      }
+    });
+    
+    if (currentSection) {
+      const sectionId = currentSection.id;
+      document.querySelectorAll('.nav-dot').forEach(dot => {
+        dot.classList.remove('active');
+      });
+      
+      const activeDot = document.querySelector(`.nav-dot[data-section="${sectionId}"]`);
+      if (activeDot) {
+        activeDot.classList.add('active');
+        document.getElementById('current-section-name').textContent = sectionId.replace(/-/g, ' ');
+        
+        // Changement de couleur basé sur la section
+        const color = activeDot.dataset.color || '#5e9563';
+        document.querySelector('.section-progress-bar').style.background = color;
+      }
+    }
+  }
+
+  // Animation au défilement
+  function updateScrollReveal(scrollTop) {
+    const revealElements = document.querySelectorAll('.reveal');
+    
+    revealElements.forEach(elem => {
+      const elementTop = elem.getBoundingClientRect().top + scrollTop;
+      const revealPoint = 150;
+      
+      if (scrollTop + window.innerHeight - revealPoint > elementTop) {
+        elem.classList.add('active');
+      } else {
+        elem.classList.remove('active');
+      }
+    });
+  }
+  
+  // Initialisation de ScrollReveal pour une première fois
+  updateScrollReveal(window.scrollY);
 });
 </script>
 </body>
