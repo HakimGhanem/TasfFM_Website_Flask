@@ -53,25 +53,25 @@
     <div class="collapse navbar-collapse justify-content-md-center align-items-center" id="main-menu">
       <ul class="navbar-nav text-uppercase align-items-center">
         <li class="nav-item active">
-          <a class="nav-link" href="#accueil">Accueil <span class="sr-only">(current)</span></a>
+          <a id="nav-accueil" class="nav-link" href="#accueil">Accueil <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#presentation">Présentation</a>
+          <a id="nav-presentation" class="nav-link" href="#presentation">Présentation</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#utilisateurs">Utilisateurs</a>
+          <a id="nav-utilisateurs" class="nav-link" href="#utilisateurs">Utilisateurs</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#cas-usage">Cas d'usage</a>
+          <a id="nav-cas-usage" class="nav-link" href="#cas-usage">Cas d'usage</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#integrations">Intégrations</a>
+          <a id="nav-integrations" class="nav-link" href="#integrations">Intégrations</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#faq">FAQ</a>
+          <a id="nav-faq" class="nav-link" href="#faq">FAQ</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#contact">Contact</a>
+          <a id="nav-contact" class="nav-link" href="#contact">Contact</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href=""></a>
@@ -806,6 +806,40 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Initialisation de ScrollReveal pour une première fois
   updateScrollReveal(window.scrollY);
+});
+
+// Synchronisation entre navigation latérale et menu principal
+document.querySelectorAll('.nav-dot').forEach(dot => {
+  dot.addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    // Récupérer l'identifiant de section
+    const sectionId = this.getAttribute('data-section');
+    
+    // Mettre à jour le menu principal
+    document.querySelectorAll('.navbar-nav .nav-item').forEach(item => {
+      item.classList.remove('active');
+    });
+    
+    // Trouver et activer l'élément de menu correspondant
+    const correspondingNavItem = document.querySelector(`.navbar-nav .nav-item a[href="#${sectionId}"]`).parentNode;
+    if (correspondingNavItem) {
+      correspondingNavItem.classList.add('active');
+    }
+    
+    // Faire défiler jusqu'à la section (en utilisant le même comportement que les liens du menu)
+    const targetSection = document.getElementById(sectionId);
+    if (targetSection) {
+      // Si vous utilisez scrollify
+      $.scrollify.move(`#${sectionId}`);
+      
+      // Sinon, utilisez le défilement natif avec animation douce
+      // targetSection.scrollIntoView({ behavior: 'smooth' });
+    }
+    
+    // Mise à jour de l'URL sans rechargement (optionnel)
+    history.pushState(null, null, `#${sectionId}`);
+  });
 });
 </script>
 </body>
